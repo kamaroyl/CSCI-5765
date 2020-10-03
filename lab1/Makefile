@@ -1,13 +1,15 @@
 CC = gcc
 CFLAGS = -I -g
 
-client: client.c
-	$(CC) $(CFLAGS) -o client Utils.c Common.c Client.c
+client: src/client/Client.c
+	mkdir -p out
+	$(CC) $(CFLAGS) -o out/Client src/common/Utils.c src/common/Common.c src/client/Client.c
 
-server: Server.c
-	$(CC) $(CFLAGS) -o server Utils.c Common.c Server.c
+server: src/server/Server.c
+	mkdir -p out
+	$(CC) $(CFLAGS) -o out/server src/common/Utils.c src/common/Common.c src/server/Server.c
 
 .PHONY: clean
 
 clean:
-	rm -rf client; rm -rf server
+	rm -rf out

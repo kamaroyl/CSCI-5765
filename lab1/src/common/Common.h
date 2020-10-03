@@ -57,4 +57,6 @@ char* responseToBuffer(struct CommandMessage__Response_Wire* response);
 int getLength(char* buffer);
 int getTLVMessage(int socketFd, char* buffer, int size);
 int sendAll(int socketFd, char* buffer, int size);
+char* readInFile(char* fileName, int* result);
+int writeOutFile(char* buffer, int length, char* filename);
 #endif

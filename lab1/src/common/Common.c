@@ -191,3 +191,33 @@ int sendAll(int socketFd, char* buffer, int size) {
     }
     return index;
 }
+
+char* readInFile(char* fileName, int* size) {
+    FILE* fp;
+    int result = -1;
+    const char* read = "r";
+    char* buffer;
+    *size = -1;
+    fp = fopen(fileName, read);
+    if( fp == NULL ) {
+        return NULL;
+    }
+    fseek(fp, 0L, SEEK_END);
+    *size = ftell(fp);
+    buffer = (char*) malloc((*size) * sizeof(char));
+    rewind(fp);
+    result = fread(buffer, 1, *size, fp);
+    *size = result != *size? -1: *size;
+    return buffer;
+}
+
+int writeOutFile(char* buffer, int length, char* filename) {
+    FILE* fp;
+    int success = -1;
+    const char* write = "w";
+    fp = fopen(filename, write);
+    if(fp == NULL) return success;
+    success = fwrite(buffer, 1, length, fp);
+    return success == length? 0: -1;
+
+}

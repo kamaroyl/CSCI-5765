@@ -74,6 +74,11 @@ char checkIfDirExists(const char* dir) {
     return !stat(dir, &statData) && S_ISDIR(statData.st_mode);
 }
 
+char checkIfFileExists(const char* fileName) {
+    struct stat statData;
+    return !stat(fileName, &statData) && S_ISREG(statData.st_mode);
+}
+
 char changeDirectory(char* dir) {
     int success = -1;
     if(dir != NULL && strlen(dir) > 0) {

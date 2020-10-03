@@ -13,8 +13,8 @@
 #include <sys/wait.h>
 #include <signal.h>
 
-#include "Common.h"
-#include "Utils.h"
+#include "../common/Common.h"
+#include "../common/Utils.h"
 
 #define PORT "3490"  // the port users will be connecting to
 
@@ -145,6 +145,23 @@ int main(void)
                         (struct CommandMessage__Response_Wire *) malloc(sizeof(struct CommandMessage__Response_Wire));
                 switch (request->__command) {
                     case get:;
+                        if (checkIfFileExists(request->data)) {
+                            //malloc
+                            char* fileContents = readInFile(request->data, &success);
+                            printf("Result From File was: %d", success);
+                            if( success == -1) {
+                                printf("Failed to read file");
+                                response->__status = ERROR;
+                                response->data = "An error occurred while reading specified file\n";
+                                response->length = strlen(response->data);
+                            } else {
+                                printf("Read File\n");
+                                response->__status = OK;
+                                response->data = fileContents;
+                                response->length = success; //read in file sets success to the length of the file on success
+                            }
+                            fileContents = NULL;
+                        }
                         break;
                     case ls:;
 
