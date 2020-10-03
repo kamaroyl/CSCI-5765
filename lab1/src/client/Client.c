@@ -23,6 +23,7 @@
 
 int main(int argc, char *argv[])
 {
+    printf("Current Working DIrectory: %s\n", getenv("PWD"));
 	int sockfd, numbytes;  
 	char buf[MAXDATASIZE];
 	struct addrinfo hints, *servinfo, *p;
@@ -69,8 +70,8 @@ int main(int argc, char *argv[])
 			s, sizeof s);
 	printf("client: connecting to %s\n", s);
 	struct CommandMessage__Request_Wire msg;
-	msg.__command = cd;
-	msg.data = "asdf";
+	msg.__command = get;
+	msg.data = "TEST_FILE";
 	msg.length = strlen(msg.data);
 	char* buffer = requestToBuffer(&msg);
 	freeaddrinfo(servinfo); // all done with this structure
