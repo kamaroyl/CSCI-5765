@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
         enum command commandToSend;
         char **tokenizedCommand; //FREE ME
         int tokenizedInputLength;
+        char* thisDirectory = ".";
 
         if (argc != 2) {
             fprintf(stderr, "usage: client hostname\n");
@@ -117,7 +118,8 @@ int main(int argc, char *argv[])
                        commandToSend == cd ||
                        commandToSend == lcd) {
                 if (tokenizedInputLength != 2) {
-                    printf("Command requires second argument");
+                    printf("Command requires second argument\n");
+                    goto FREE;
                 } else {
                     cleanInput(tokenizedCommand[1]);
                 }
@@ -128,27 +130,19 @@ int main(int argc, char *argv[])
             if (commandToSend > 4) { // command is local
                 switch (commandToSend) {
                     case lls:;
-                        int processStatus = 0;
-                        int pid = fork();
-                        if(pid < 0) {
-                            printf("failed to create process\n");
-                        } else if(pid == 0) {
-                            char* directory[] = {"."};
-                            execve("ls", directory, environ);
-                        } else {
-                            wait(&processStatus);
-                            //printf("Child Returned\n");
-                            if(processStatus != 0) printf("Child process failed\nStatusCode: %d\n", processStatus);
-                        }
+                        char* localDirContents = getDirContents(thisDirectory, &result);
+                        printf("Contents of Current Directory:\n %s", localDirContents);
+                        free(localDirContents);
                         break;
                     case lpwd:;
-                        printf("Current Working Directory: %s", getenv("PWD"));
+                        printf("Current Working Directory: %s\n", getenv("PWD"));
+                        break;
                     case lcd:;
                         result = changeDirectory(tokenizedCommand[1]);
-                        if (result != 0) {
+                        if (result < 0) {
                             printf("Failed to change directory %s\n", tokenizedCommand[1]);
                         } else {
-                            printf("changed directory %s", getenv("PWD"));
+                            printf("changed directory %s\n", getenv("PWD"));
                         }
                         break;
                     case help:;
@@ -201,21 +195,29 @@ int main(int argc, char *argv[])
 
                 //recieve response
                 result = getTLVMessage(sockfd, &receiveBuffer[0], ARG_MAX);
-                printf("DEBUG Done Receiving data; recieved %d bytes of data\n", result);
+                //printf("DEBUG Done Receiving data; recieved %d bytes of data\n", result);
+                //malloc
                 response = bufferToResponse(receiveBuffer);
                 if(msg->__command == get) {
-                    result = writeOutFile(response->data, response->length,  tokenizedCommand[1]);
-                    if(result < 0) {
-                        printf("Failed to write file \n");
+                    if(response->__status == OK) {
+                        result = writeOutFile(response->data, response->length, tokenizedCommand[1]);
+                        if (result < 0) {
+                            printf("Failed to write file \n");
+                        }
+                    } else {
+                        printf("Could not retrieve file; %s\n", response->data);
                     }
                 }else {
-                    printf("DEBUG ResponseMessage: { Status: %s, length: %d, data: %s} \n", statusStrings[response->__status],
-                           response->length, response->data);
+                    //printf("DEBUG ResponseMessage: { Status: %s, length: %d, data: %s} \n", statusStrings[response->__status],
+                           //response->length, response->data);
+                    printf("%s\n", response->data);
                 }
 
                 //error handling and results
                 free(msg);
                 free(buffer);
+                free(response->data);
+                free(response);
             } //Remote vs Local End
 
             FREE:

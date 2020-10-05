@@ -148,9 +148,9 @@ int main(void)
                         if (checkIfFileExists(request->data)) {
                             //malloc
                             char* fileContents = readInFile(request->data, &success);
-                            printf("Result From File was: %d", success);
+                            printf("Result From File was: %d\n", success);
                             if( success == -1) {
-                                printf("Failed to read file");
+                                printf("Failed to read file\n");
                                 response->__status = ERROR;
                                 response->data = wrapRawStingInMalloc("An error occurred while reading specified file\n");
                                 response->length = strlen(response->data);
@@ -161,6 +161,11 @@ int main(void)
                                 response->length = success; //read in file sets success to the length of the file on success
                             }
                             fileContents = NULL;
+                        } else {
+                            printf("File does not exist\n");
+                            response->__status = ERROR;
+                            response->data = wrapRawStingInMalloc("Specified File Does Not Exist or is Directory\n");
+                            response->length = strlen(response->data);
                         }
                         break;
                     case ls:;
@@ -227,11 +232,11 @@ int main(void)
                 sendAll(new_fd, responseBuffer, response->length + 5);
 
                 free(responseBuffer);
-                printf("Freed Response Buffer\n");
+                //printf("Freed Response Buffer\n");
                 freeRequest(request);
-                printf("Freed Request\n");
+                //printf("Freed Request\n");
                 freeResponse(response);
-                printf("freed Response\n");
+                //printf("freed Response\n");
 
             }
             printf("closing socket\n");

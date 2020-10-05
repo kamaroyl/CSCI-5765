@@ -116,6 +116,7 @@ void cleanInput(char* userInput) {
     for(int i = 0; i < strlen(tmp) + 1; ++i) {
         userInput[i] = tmp[i];
     }
+    free(tmp);
 }
 
 char isWhitespace(char input) {
@@ -135,16 +136,16 @@ void getUserInput(char* inputPtr){
     char tmpInput[ARG_MAX];
     fgets(&tmpInput[0], ARG_MAX, stdin);
     int length = strlen(&tmpInput[0]);
-    printf("Input: %s\n", &tmpInput[0]);
+    //printf("Input: %s\n", &tmpInput[0]);
     while(tmpInput[i] == ' ' || tmpInput[i] == '	') i++;
     int k = 0;
     for(; j < length - i - 1; j++) {
-        printf("j: %d i: %d ", j,i);
+        //printf("j: %d i: %d ", j,i);
         if(isWhitespace(tmpInput[j + i]) && isWhitespace(tmpInput[j+i+1])) {
             printf("\n");
             ++k;
         } else {
-            printf("Char: %c\n", tmpInput[j + i]);
+            //printf("Char: %c\n", tmpInput[j + i]);
             inputPtr[j-k] = tmpInput[j + i];
         }
     }
