@@ -16,7 +16,7 @@
 #include "../common/Common.h"
 #include "../common/Utils.h"
 
-#define PORT "3490"  // the port users will be connecting to
+#define PORT "12345"  // the port users will be connecting to
 
 #define BACKLOG 10	 // how many pending connections queue will hold
 
@@ -152,7 +152,7 @@ int main(void)
                             if( success == -1) {
                                 printf("Failed to read file");
                                 response->__status = ERROR;
-                                response->data = "An error occurred while reading specified file\n";
+                                response->data = wrapRawStingInMalloc("An error occurred while reading specified file\n");
                                 response->length = strlen(response->data);
                             } else {
                                 printf("Read File\n");
@@ -171,7 +171,7 @@ int main(void)
                         if (success != 0) {
                             printf("Failed to get dir Contents\n");
                             response->__status = ERROR;
-                            response->data = "An error occurred getting directory contents\n";
+                            response->data = wrapRawStingInMalloc("An error occurred getting directory contents\n");
                             response->length = strlen(response->data);
                         } else {
                             printf("Got Dir Contents\n");
@@ -186,27 +186,28 @@ int main(void)
                     case pwd:;
                         printf("Getting CWD");
                         response->__status = OK;
-                        response->data = getenv("PWD");
+                        response->data =wrapRawStingInMalloc(getenv("PWD"));
                         response->length = strlen(response->data);
                         break;
                     case cd:;
                         success = changeDirectory(request->data);
+
                         if (success != 0) {
                             printf("Failed to change Directory\n");
                             response->__status = ERROR;
-                            response->data = "An Error occurred while changing directory\n";
+                            response->data = wrapRawStingInMalloc("An Error occurred while changing directory\n");
                             response->length = strlen(response->data);
                         } else {
                             printf("changed directory");
                             response->__status = OK;
-                            response->data = getenv("PWD");
+                            response->data = wrapRawStingInMalloc(getenv("PWD"));
                             response->length = strlen(response->data);
                         }
                         break;
                     case bye:;
                         shouldListen = 0;
                         response->__status = OK;
-                        response->data = NULL;
+                        response->data = wrapRawStingInMalloc(" \0");
                         response->length = 1;
                         break;
                     case sexit:;
@@ -216,18 +217,21 @@ int main(void)
                     default:
                         printf("Unknown\n");
                         response->__status = ERROR;
-                        response->data = "Unknown Command\n";
+                        response->data = wrapRawStingInMalloc("Unknown Command\n");
                         response->length = strlen(response->data);
                         break;
                 }
                 //malloc'd
                 responseBuffer = responseToBuffer(response);
                 printf("Now Sending Data\n");
-                sendAll(new_fd, responseBuffer, strlen(&responseBuffer[5]) + 5);
+                sendAll(new_fd, responseBuffer, response->length + 5);
 
                 free(responseBuffer);
+                printf("Freed Response Buffer\n");
                 freeRequest(request);
+                printf("Freed Request\n");
                 freeResponse(response);
+                printf("freed Response\n");
 
             }
             printf("closing socket\n");

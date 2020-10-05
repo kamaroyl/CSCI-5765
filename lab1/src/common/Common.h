@@ -13,19 +13,28 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/socket.h>
+#include<sys/wait.h>
 #include <unistd.h>
-#define ARG_MAX 4*1024
+#define ARG_MAX 1024*1024
 
-extern char* commandStrings[6];
+extern char* commandStrings[10];
 extern char* statusStrings[2];
+extern const char NUL;
 
 enum __attribute__((__packed__)) command {
+    //Remote Commands
     get,
     ls,
     pwd,
     cd,
     bye,
-    sexit
+    //Local Commands
+    sexit,
+    help,
+    lls,
+    lpwd,
+    lcd,
+    UNKNOWN
 };
 
 enum __attribute__((__packed__)) status {
@@ -47,7 +56,7 @@ struct __attribute__((__packed__)) CommandMessage__Response_Wire {
 };
 
 void *get_in_addr(struct sockaddr *sa);
-
+unsigned int hash(char* input);
 void freeRequest(struct CommandMessage__Request_Wire* request);
 struct CommandMessage__Request_Wire* bufferToRequest(char* buffer);
 char* requestToBuffer(struct CommandMessage__Request_Wire* request);
@@ -59,4 +68,6 @@ int getTLVMessage(int socketFd, char* buffer, int size);
 int sendAll(int socketFd, char* buffer, int size);
 char* readInFile(char* fileName, int* result);
 int writeOutFile(char* buffer, int length, char* filename);
+struct CommandMessage__Request_Wire* translateUserInput(enum command __command, char* argument);
+char* wrapRawStingInMalloc(char* rawString);
 #endif

@@ -9,6 +9,10 @@ server: src/server/Server.c
 	mkdir -p out
 	$(CC) $(CFLAGS) -o out/server src/common/Utils.c src/common/Common.c src/server/Server.c
 
+unit: test/unit/UnitTests.c
+	mkdir -p out
+	$(CC) $(CFLAGS) -o out/unitTest src/common/Utils.c src/common/Common.c test/unit/UnitTests.c
+
 .PHONY: clean
 
 clean:

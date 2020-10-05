@@ -1,17 +1,67 @@
 #include "Common.h"
-char* commandStrings[6] = {
+
+const char NUL = '\0';
+
+char* commandStrings[10] = {
     "get",
 	"ls",
 	"pwd",
 	"cd",
 	"bye",
-	"exit"
+	"exit",
+	"help",
+	"lls",
+	"lpwd",
+	"lcd"
 };
 
 char* statusStrings[2] = {
     "OK",
     "ERROR"
 };
+
+//http://www.cse.yorku.ca/~oz/hash.html
+unsigned int hash(char *str)
+{
+    unsigned int hash = 5381;
+    int c;
+
+    while (c = *str++)
+        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+
+    return hash;
+}
+
+enum command stringToCommand(char* userInput) {
+    printf("User Input = %s\n", userInput);
+    unsigned int hashValue = hash(userInput) % 1000;
+    printf("HASH VALUE: %d\n", hashValue);
+    switch(hashValue) {
+        case 613:
+            return get;
+        case 588:
+            return ls;
+        case 992:
+            return pwd;
+        case 276:
+            return cd;
+        case 813:
+            return bye;
+        case 503:
+            return sexit;
+        case 718:
+            return help;
+        case 288:
+            return lls;
+        case 796:
+            return lpwd;
+        case 976:
+            return lcd;
+        default:
+            return UNKNOWN;
+    }
+
+}
 
 void freeRequest(struct CommandMessage__Request_Wire* request) {
     char* data = request->data;
@@ -97,7 +147,7 @@ char* requestToBuffer(struct CommandMessage__Request_Wire* request) {
         buffer[i + 5] = request->data[i];
         printf("Buffer[%d] = %d\n", i + 5, buffer[i + 5]);
     }
-    buffer[5 + request->length] = '\0';
+    buffer[5 + request->length] = NUL;
     return buffer;
 }
 
@@ -120,7 +170,7 @@ char* responseToBuffer(struct CommandMessage__Response_Wire* response) {
         printf("Buffer[%d] = %d\n", i + 5, buffer[i + 5]);
     }
     printf("Copied Data\n");
-    buffer[5 + response->length] = '\0';
+    buffer[5 + response->length] = NUL;
     return buffer;
 }
 
@@ -166,12 +216,15 @@ int getTLVMessage(int socketFd, char* buffer, int size) {
     length = getLength(buffer);
     printf("Length: %d\n", length);
     while( index < length + 5 ) {
+        printf("recieving. . . \n");
         delta = recv(socketFd, &buffer[index], size - delta, 0);
+        printf("Recieved!\n");
         if( delta == -1 ) {
             printf("Failed to recv in loop\n");
             return -1;
         }
         index += delta;
+        printf("Index: %d\n", index);
     }
 
     printf("Done Recieving TLV Message\n");
@@ -220,4 +273,27 @@ int writeOutFile(char* buffer, int length, char* filename) {
     success = fwrite(buffer, 1, length, fp);
     return success == length? 0: -1;
 
+}
+
+struct CommandMessage__Request_Wire* translateUserInput(enum command __command, char* argument) {
+    struct CommandMessage__Request_Wire* msg =
+            (struct CommandMessage__Request_Wire*) malloc(sizeof(struct CommandMessage__Request_Wire));
+    printf("In Translate User Input:\n");
+    printf("Command is: %s\n",commandStrings[__command] );
+    msg->__command = __command;
+    printf("Argument is: %s\n", argument);
+    msg->data = argument;
+    printf("ArgumentLength is: %lld\n", strlen(argument));
+    msg->length = strlen(argument);
+    return msg;
+}
+
+char* wrapRawStingInMalloc(char* rawString) {
+    int length = strlen(rawString);
+    char* mallocdString = (char*) malloc(length * sizeof(char) + 1);
+    for(int i = 0; i < length; ++i) {
+        mallocdString[i] = rawString[i];
+    }
+    mallocdString[length] = NUL;
+    return mallocdString;
 }
