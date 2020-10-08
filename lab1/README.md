@@ -23,5 +23,6 @@ The client executable cannot be run until the server is running. To start the cl
 ### Tests - Unit
 `make unit` compiles some unit tests, found under the test directory. It compiles to `out/unitTest`
 
-### Tests - Integration
+### Example pictures
+Added example pictures under the `Data` directory demonstrating the server running on csegrid with 2 clients and 4 clients running locally (Note was also tested with clients on csegrid).
 
