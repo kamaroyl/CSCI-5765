@@ -1,0 +1,3334 @@
+ ./out/NetEmu
+-----  Stop and Wait Network Simulator Version 1.3 --------
+
+ALGORITHM: ALTERNATING BIT
+Enter the number of messages to simulate: 200
+Enter packet loss probability, range [0.0, 1.0]: .1
+Enter packet corruption probability, range [0.0, 1.0]: .3
+Enter average time between messages from sender's layer5 1000 is good: 10
+Enter TRACE [1, 2, 3]: 1
+
+
+Output A; time: 18.705740
+MSG: { data: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 12849, payload: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 24.170835
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 12849, payload: [Z,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Input A; time: 26.352459
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 12849, payload: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+
+
+Input B; time: 28.372955
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 12849, payload: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 12849, payload: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+Translated packet to message
+MSG: { data: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 32.840221
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 35.124840
+MSG: { data: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 36.187996
+MSG: { data: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 44.773342
+MSG: { data: [d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 46.352459
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 12849, payload: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+
+
+Input B; time: 52.650871
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 12849, payload: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 12849, payload: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+################################
+# 3 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 58.680519
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 63.503174
+MSG: { data: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 2570, payload: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 67.348152
+MSG: { data: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 67.566780
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 2570, payload: [Z,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 12849, payload: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being lost
+
+
+Output A; time: 77.518822
+MSG: { data: [g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 79.299927
+MSG: { data: [h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 83.503174
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 2570, payload: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+
+
+Input B; time: 87.661758
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 2570, payload: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 12849, payload: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 2570, payload: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+Translated packet to message
+MSG: { data: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 98.936996
+MSG: { data: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 103.503174
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 2570, payload: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+
+
+Input B; time: 106.133827
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 2570, payload: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 2570, payload: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+################################
+# 4 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 108.009018
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 65535, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 108.581902
+MSG: { data: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 108.711823
+MSG: { data: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 109.888290
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 2570, payload: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+Translated packet to message
+MSG: { data: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 111.108574
+PKT: { sequence_number: 999999, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 118.209824
+MSG: { data: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 128.581909
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 129.876343
+MSG: { data: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 131.013000
+MSG: { data: [n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 137.467392
+MSG: { data: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 145.954681
+MSG: { data: [p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 148.581909
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 150.127655
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 157.977997
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [Z,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Input A; time: 159.255463
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 164.873138
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [Z,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 166.904953
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 168.422684
+MSG: { data: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 170.845535
+MSG: { data: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 179.255463
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 185.267624
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [Z,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Output A; time: 185.829849
+MSG: { data: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 189.124023
+MSG: { data: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 190.021683
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+
+
+Input B; time: 195.408539
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+#################################
+# 11 PACKETS DROPPED BEFORE ACK #
+#################################
+Input A; time: 197.112778
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 199.145660
+MSG: { data: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 24415, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 200.309448
+MSG: { data: [w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 207.103516
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 24415, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 55254, payload: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 24415, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Translated packet to message
+MSG: { data: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 215.929413
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 216.088501
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+IS CHECKSUM VALID? TRUE
+
+
+Input B; time: 220.785110
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 24415, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Translated packet to message
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+
+################################
+# 0 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 226.288071
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 226.455231
+MSG: { data: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 230.254517
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [Z,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Input A; time: 236.513794
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 245.317856
+MSG: { data: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 247.026764
+MSG: { data: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 253.168396
+MSG: { data: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 256.513794
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 264.059418
+MSG: { data: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 265.449799
+MSG: { data: [d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 276.513794
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+
+
+Output A; time: 277.905792
+MSG: { data: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 278.663177
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+Translated packet to message
+MSG: { data: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 290.752411
+MSG: { data: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 294.149933
+MSG: { data: [g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 294.535370
+MSG: { data: [h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 296.513794
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+
+
+Input B; time: 302.352264
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 304.887573
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 65535, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 313.223755
+MSG: { data: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 316.513794
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 331.718079
+MSG: { data: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 331.856689
+MSG: { data: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 336.513794
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 336.571655
+MSG: { data: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 336.902832
+MSG: { data: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 339.883209
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 999999, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Output A; time: 340.608521
+MSG: { data: [n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 343.795959
+PKT: { sequence_number: 999999, acknowledgement_number: -1, check_sum: 48561, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+
+
+Input B; time: 347.969666
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+#################################
+# 15 PACKETS DROPPED BEFORE ACK #
+#################################
+Input A; time: 355.571686
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 65535, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 358.658936
+MSG: { data: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+IS CHECKSUM VALID? TRUE
+
+
+Input B; time: 363.559174
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 16705, payload: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Translated packet to message
+MSG: { data: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+
+
+Output A; time: 370.373810
+MSG: { data: [p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 373.297882
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 375.533264
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 37265, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 378.364441
+MSG: { data: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 382.301727
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 37265, payload: [Z,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Input A; time: 390.731476
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 37265, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+
+
+Output A; time: 391.321838
+MSG: { data: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 397.416870
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 37265, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 37265, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Translated packet to message
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+
+################################
+# 2 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 400.678894
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 403.631256
+MSG: { data: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 410.912720
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [Z,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 37265, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Output A; time: 412.148529
+MSG: { data: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 417.418091
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 418.847107
+MSG: { data: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 424.272522
+MSG: { data: [w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 437.418091
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 438.477814
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 452.657013
+MSG: { data: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 457.418091
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+
+
+Input B; time: 460.740936
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 37265, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+Translated packet to message
+MSG: { data: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 469.497131
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 472.021759
+MSG: { data: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 477.418091
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+
+
+Output A; time: 485.768280
+MSG: { data: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 487.022827
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+
+Output A; time: 487.685913
+MSG: { data: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 8 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 495.604248
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 506.023041
+MSG: { data: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 511.387909
+MSG: { data: [d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 512.556213
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Translated packet to message
+MSG: { data: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 514.529541
+MSG: { data: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 516.080994
+MSG: { data: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 526.023071
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 528.126831
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [Z,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 534.244751
+MSG: { data: [g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 537.122620
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 537.174988
+MSG: { data: [h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 546.023071
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+
+
+Input B; time: 547.097900
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+          TOLAYER3: packet being lost
+
+
+Output A; time: 550.552979
+MSG: { data: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 564.465759
+MSG: { data: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 566.023071
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 566.348389
+MSG: { data: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 566.641907
+MSG: { data: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 570.442200
+MSG: { data: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 581.915649
+MSG: { data: [n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 586.023071
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 591.437805
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [Z,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Input A; time: 597.758301
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+
+
+Output A; time: 599.056763
+MSG: { data: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 604.776917
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+
+Output A; time: 609.713501
+MSG: { data: [p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p] }
+CURRENTLY WAITING, DROPPING PACKET
+
+#################################
+# 13 PACKETS DROPPED BEFORE ACK #
+#################################
+Input A; time: 612.739990
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 65535, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 628.314575
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+IS CHECKSUM VALID? TRUE
+
+
+Input B; time: 631.351562
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 7710, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Translated packet to message
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+
+################################
+# 0 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 639.069824
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 641.556519
+MSG: { data: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 647.134399
+MSG: { data: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 647.169556
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Translated packet to message
+MSG: { data: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 653.236938
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 663.027100
+MSG: { data: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 670.712952
+MSG: { data: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 671.756592
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+Translated packet to message
+MSG: { data: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 673.663391
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 683.297363
+MSG: { data: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 24415, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 685.612793
+MSG: { data: [w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 692.482544
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 24415, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 29554, payload: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 24415, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Translated packet to message
+MSG: { data: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 695.938904
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 696.830200
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 703.734924
+MSG: { data: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 704.285461
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [Z,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 24415, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 710.584778
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 713.009460
+MSG: { data: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 716.830200
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 732.246277
+MSG: { data: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 732.457520
+MSG: { data: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 736.830200
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+
+
+Input B; time: 741.383911
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 24415, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Translated packet to message
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 742.955139
+MSG: { data: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 743.059265
+MSG: { data: [d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 750.523987
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 754.451660
+MSG: { data: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 756.830200
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 761.610596
+MSG: { data: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 762.141968
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [Z,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Output A; time: 764.855103
+MSG: { data: [g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 769.584412
+MSG: { data: [h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 770.580383
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 776.497864
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [Z,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 779.871277
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 780.459351
+MSG: { data: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 786.751221
+MSG: { data: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 789.270447
+MSG: { data: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 790.580383
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 796.267761
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [Z,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 801.708984
+MSG: { data: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 801.780884
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 803.130493
+MSG: { data: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 810.580383
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+
+
+Output A; time: 815.368774
+MSG: { data: [n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 816.531799
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+#################################
+# 16 PACKETS DROPPED BEFORE ACK #
+#################################
+Input A; time: 825.613403
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 826.183594
+MSG: { data: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 42405, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 830.580444
+MSG: { data: [p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 835.382385
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 42405, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 19274, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 42405, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Translated packet to message
+MSG: { data: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 841.001343
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 844.196655
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 847.840027
+MSG: { data: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 853.414185
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 42405, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Translated packet to message
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 856.489014
+PKT: { sequence_number: 999999, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 862.931580
+MSG: { data: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 864.196655
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+
+
+Input B; time: 867.748352
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 867.778137
+MSG: { data: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 871.939758
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Interrupt Timer A Fired; time: 884.196655
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+
+
+Output A; time: 885.873291
+MSG: { data: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 893.090088
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+
+Output A; time: 898.365967
+MSG: { data: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 901.471130
+MSG: { data: [w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 6 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 901.622986
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 915.833801
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being lost
+
+
+Output A; time: 924.631165
+MSG: { data: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 929.258301
+MSG: { data: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 934.375916
+MSG: { data: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 935.833801
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+
+
+Input B; time: 938.354248
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Translated packet to message
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+
+
+Output A; time: 939.493530
+MSG: { data: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 4 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 945.689575
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 957.292480
+MSG: { data: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+IS CHECKSUM VALID? TRUE
+
+
+Input B; time: 963.607971
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Translated packet to message
+MSG: { data: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 967.012329
+MSG: { data: [d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 968.173401
+MSG: { data: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 968.750854
+MSG: { data: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 971.103699
+PKT: { sequence_number: 999999, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Interrupt Timer A Fired; time: 977.292480
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 979.884399
+MSG: { data: [g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 984.106628
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [Z,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 988.118408
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 989.544434
+MSG: { data: [h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 997.292480
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+
+
+Output A; time: 997.711487
+MSG: { data: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 1003.560791
+MSG: { data: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1004.017517
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+################################
+# 7 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1013.180664
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1019.661865
+MSG: { data: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 1027.662842
+MSG: { data: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1029.616577
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Translated packet to message
+MSG: { data: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 1033.742676
+PKT: { sequence_number: 0, acknowledgement_number: 999999, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 1035.414429
+MSG: { data: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 1038.961304
+MSG: { data: [n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1039.661865
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 1042.308838
+MSG: { data: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1047.268066
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [Z,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Input A; time: 1048.686523
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1051.915161
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [Z,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Output A; time: 1060.615479
+MSG: { data: [p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 1060.763550
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+
+
+Input B; time: 1062.717163
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+################################
+# 5 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1068.271240
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 65535, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1080.067139
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+IS CHECKSUM VALID? TRUE
+
+
+Input B; time: 1081.644409
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 52685, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Translated packet to message
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+
+
+Output A; time: 1083.688232
+MSG: { data: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1084.205688
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1096.813110
+MSG: { data: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 32125, payload: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+IS CHECKSUM VALID? TRUE
+
+
+Input B; time: 1101.325562
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 32125, payload: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 37264, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 32125, payload: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+Translated packet to message
+MSG: { data: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+
+
+Output A; time: 1103.630005
+MSG: { data: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1105.075928
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1110.862183
+MSG: { data: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 1114.088135
+MSG: { data: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1117.345337
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 32125, payload: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+Translated packet to message
+MSG: { data: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 1120.768799
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 1121.418945
+MSG: { data: [w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1130.862183
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1133.135986
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [Z,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Input A; time: 1136.957642
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1140.289185
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [Z,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being lost
+
+
+Output A; time: 1140.346436
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1156.957642
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+
+
+Output A; time: 1159.032471
+MSG: { data: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1165.561157
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+################################
+# 4 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1172.232666
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1175.830200
+MSG: { data: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 14135, payload: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1184.991089
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 14135, payload: [Z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Output A; time: 1186.261353
+MSG: { data: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 1189.772461
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 14135, payload: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+
+
+Output A; time: 1192.839966
+MSG: { data: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1194.411499
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 14135, payload: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 26984, payload: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 14135, payload: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+Translated packet to message
+MSG: { data: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+
+################################
+# 2 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1196.834473
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1209.312378
+MSG: { data: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1215.028198
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [Z,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 14135, payload: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 1217.851318
+PKT: { sequence_number: 1, acknowledgement_number: 999999, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 1226.318481
+MSG: { data: [d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 1227.266479
+MSG: { data: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1229.312378
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1232.178467
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [Z,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 14135, payload: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 1237.150269
+MSG: { data: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 1239.240356
+MSG: { data: [g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 1241.420776
+PKT: { sequence_number: 999999, acknowledgement_number: -1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Interrupt Timer A Fired; time: 1249.312378
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+
+
+Output A; time: 1250.465942
+MSG: { data: [h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1255.374634
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 14135, payload: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Translated packet to message
+MSG: { data: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+
+################################
+# 5 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1259.801147
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1269.704590
+MSG: { data: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 57825, payload: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+IS CHECKSUM VALID? TRUE
+
+
+Input B; time: 1274.550171
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 57825, payload: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 7709, payload: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 57825, payload: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+Translated packet to message
+MSG: { data: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+
+
+Output A; time: 1279.776611
+MSG: { data: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1284.111450
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1294.405151
+MSG: { data: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 52684, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+IS CHECKSUM VALID? TRUE
+
+
+Input B; time: 1303.514648
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 52684, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 57825, payload: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 52684, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Translated packet to message
+MSG: { data: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+
+
+Output A; time: 1305.024170
+MSG: { data: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1308.071777
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1323.435791
+MSG: { data: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 47545, payload: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+IS CHECKSUM VALID? TRUE
+
+
+Input B; time: 1330.281128
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 47545, payload: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 52684, payload: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 47545, payload: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+Translated packet to message
+MSG: { data: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+
+
+Output A; time: 1333.827637
+MSG: { data: [n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1335.863770
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1344.904297
+MSG: { data: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+IS CHECKSUM VALID? TRUE
+
+
+Input B; time: 1349.900635
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 47545, payload: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Translated packet to message
+MSG: { data: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 1360.684937
+MSG: { data: [p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1364.904297
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+
+
+Input B; time: 1371.059448
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+
+Output A; time: 1377.180176
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 2 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1380.399780
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1395.481323
+MSG: { data: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1400.495361
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [Z,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Output A; time: 1403.280640
+MSG: { data: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 1408.416626
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+
+
+Output A; time: 1408.812012
+MSG: { data: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1413.079712
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 42404, payload: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Translated packet to message
+MSG: { data: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+
+
+Output A; time: 1415.593994
+MSG: { data: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 3 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1422.843018
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1423.240845
+MSG: { data: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+IS CHECKSUM VALID? TRUE
+
+
+Input B; time: 1428.603394
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Translated packet to message
+MSG: { data: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+
+
+Output A; time: 1433.791382
+MSG: { data: [w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1434.588623
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1452.287354
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 1454.821411
+MSG: { data: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1461.284790
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [Z,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 1467.781738
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 1470.894531
+MSG: { data: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1472.287354
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+
+
+Output A; time: 1472.953369
+MSG: { data: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1475.701172
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Translated packet to message
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+
+################################
+# 3 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1480.277588
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1482.542480
+MSG: { data: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 10279, payload: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1487.451172
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 10279, payload: [Z,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 1488.480957
+MSG: { data: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 1491.896851
+MSG: { data: [d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 1495.493896
+PKT: { sequence_number: 1, acknowledgement_number: 999999, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Interrupt Timer A Fired; time: 1502.542480
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 10279, payload: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+
+
+Input B; time: 1504.402832
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 10279, payload: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 10279, payload: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+Translated packet to message
+MSG: { data: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+
+
+Output A; time: 1505.112305
+MSG: { data: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 3 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1514.260620
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1523.298340
+MSG: { data: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 0, payload: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1528.978882
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 999999, acknowledgement_number: 0, check_sum: 0, payload: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 10279, payload: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 1532.142456
+PKT: { sequence_number: 999999, acknowledgement_number: -1, check_sum: 48561, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 1539.055298
+MSG: { data: [g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1543.298340
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 0, payload: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 1553.452393
+MSG: { data: [h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 1553.667236
+MSG: { data: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 1557.276245
+MSG: { data: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1563.298340
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 0, payload: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+
+
+Output A; time: 1563.403809
+MSG: { data: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1569.831055
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 0, payload: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 10279, payload: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 0, payload: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+Translated packet to message
+MSG: { data: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+
+################################
+# 5 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1572.937988
+PKT: { sequence_number: 0, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1580.857300
+MSG: { data: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 50114, payload: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1587.620117
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 50114, payload: [Z,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 0, payload: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Input A; time: 1589.784302
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 50114, payload: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 1591.056641
+MSG: { data: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1591.132202
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 50114, payload: [Z,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 0, payload: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 1595.159302
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 1602.231201
+MSG: { data: [n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1609.784302
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 50114, payload: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+
+
+Output A; time: 1609.990845
+MSG: { data: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1613.217041
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 50114, payload: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 0, payload: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 50114, payload: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+Translated packet to message
+MSG: { data: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 1620.551270
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Output A; time: 1626.107910
+MSG: { data: [p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 1629.215698
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1629.784302
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 50114, payload: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+
+
+Input B; time: 1634.289673
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 50114, payload: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 50114, payload: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+################################
+# 5 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1642.439087
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1647.797119
+MSG: { data: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 1655.631958
+MSG: { data: [s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1657.587524
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 50114, payload: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Translated packet to message
+MSG: { data: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 1663.625366
+PKT: { sequence_number: 999999, acknowledgement_number: 1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Interrupt Timer A Fired; time: 1667.797119
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 1671.223022
+MSG: { data: [t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1672.056274
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [Z,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 1673.914307
+PKT: { sequence_number: 0, acknowledgement_number: 999999, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Interrupt Timer A Fired; time: 1687.797119
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+
+
+Output A; time: 1689.474487
+MSG: { data: [u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u,u] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1694.499756
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+################################
+# 3 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1702.513062
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 65535, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1708.626099
+MSG: { data: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 1715.450195
+MSG: { data: [w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1716.783447
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 34695, payload: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Translated packet to message
+MSG: { data: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+          TOLAYER3: packet being corrupted
+
+
+Input A; time: 1725.748291
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 65534, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Interrupt Timer A Fired; time: 1728.626099
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+
+
+Input B; time: 1729.964111
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+################################
+# 1 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1731.770752
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1734.712769
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+IS CHECKSUM VALID? TRUE
+
+
+Output A; time: 1736.399536
+MSG: { data: [y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1740.205688
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 24414, payload: [v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Translated packet to message
+MSG: { data: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 1743.686279
+MSG: { data: [z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 1753.284180
+MSG: { data: [a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1754.712769
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1759.142578
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [Z,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Output A; time: 1764.228394
+MSG: { data: [b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 1768.062256
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 1768.734863
+MSG: { data: [c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1773.686279
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [Z,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Output A; time: 1778.272949
+MSG: { data: [d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d,d] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 1780.080811
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 1791.985840
+MSG: { data: [e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e,e] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1800.080811
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+
+
+Output A; time: 1807.434937
+MSG: { data: [f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1809.822876
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+          TOLAYER3: packet being lost
+
+
+Output A; time: 1819.764160
+MSG: { data: [g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1820.080811
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+
+
+Input B; time: 1825.042969
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 1826.041138
+MSG: { data: [h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Output A; time: 1832.065674
+MSG: { data: [i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i,i] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 1834.324219
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 65535, payload: [Z,,,,,,,,,,,,,,,,,,,] }
+Checksum was invalid
+
+
+Interrupt Timer A Fired; time: 1840.080811
+A Interrupted packet resend:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 1840.190186
+MSG: { data: [j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1846.839844
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 999999, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Input A; time: 1852.375610
+PKT: { sequence_number: 0, acknowledgement_number: -1, check_sum: 0, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 1857.494507
+MSG: { data: [k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1862.203491
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 999999, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Input A; time: 1870.643311
+PKT: { sequence_number: 999999, acknowledgement_number: -1, check_sum: 48561, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+
+
+Output A; time: 1871.810181
+MSG: { data: [l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l,l] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input B; time: 1878.825195
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+#################################
+# 14 PACKETS DROPPED BEFORE ACK #
+#################################
+Input A; time: 1885.802734
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 65535, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1887.901611
+MSG: { data: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 47544, payload: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Input B; time: 1889.421387
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 47544, payload: [Z,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Incoming packet was corrupted
+
+
+Output A; time: 1893.779663
+MSG: { data: [n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Input A; time: 1895.058838
+PKT: { sequence_number: 1, acknowledgement_number: -1, check_sum: 65534, payload: [,,,,,,,,,,,,,,,,,,,] }
+Packet was a NACK, resend
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 47544, payload: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+
+
+Input B; time: 1898.400269
+Current Expected Sequence Number: 1
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 47544, payload: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+Last Packet seen at B:
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 19275, payload: [x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x] }
+Seqnums equal: 0
+Checksum equal: 0
+Acknum equal: 0
+Packets are equal: 0
+Last Packet B is now:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 47544, payload: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+Translated packet to message
+MSG: { data: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+          TOLAYER3: packet being lost
+
+
+Output A; time: 1909.426392
+MSG: { data: [o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o] }
+CURRENTLY WAITING, DROPPING PACKET
+
+
+Interrupt Timer A Fired; time: 1915.058838
+A Interrupted packet resend:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 47544, payload: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+
+
+Input B; time: 1924.214355
+Current Expected Sequence Number: 0
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 47544, payload: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+Last Packet seen at B:
+PKT: { sequence_number: 1, acknowledgement_number: 0, check_sum: 47544, payload: [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m] }
+Seqnums equal: 1
+Checksum equal: 1
+Acknum equal: 1
+Packets are equal: 1
+Incoming Packet was duplicate
+
+
+Output A; time: 1924.776611
+MSG: { data: [p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p] }
+CURRENTLY WAITING, DROPPING PACKET
+
+################################
+# 3 PACKETS DROPPED BEFORE ACK #
+################################
+Input A; time: 1926.625000
+PKT: { sequence_number: 1, acknowledgement_number: 1, check_sum: 65533, payload: [,,,,,,,,,,,,,,,,,,,] }
+PACKET ACKED, SENDING TO LAYER 5
+
+
+Output A; time: 1944.240234
+MSG: { data: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+PacketQ Length: 0
+PacketQ Capacity: 50
+PacketQ Length is now: 1
+Output A Packet Translated
+PKT: { sequence_number: 0, acknowledgement_number: 0, check_sum: 37265, payload: [q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q] }
+IS CHECKSUM VALID? TRUE
+          TOLAYER3: packet being corrupted
+
+
+Output A; time: 1946.098877
+MSG: { data: [r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r] }
+CURRENTLY WAITING, DROPPING PACKET
+ Simulator terminated at time 1949.393066
+ after sending 200 msgs from layer5
+
+ AVERAGE of 4 packets dropped per successful delivery

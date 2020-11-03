@@ -215,7 +215,7 @@ static enum state AState;
 static int CurrentSequenceNumberA;
 static int CurrentSequenceNumberB;
 
-static int TIMEOUT = 25;
+static float TIMEOUT = 20.0;
 
 static struct pkt* peek(struct PacketQueue* packetQ) {
     if(packetQ->length == 0) return NULL;
@@ -280,6 +280,7 @@ void outputA(struct msg message) {
     printMessage(&message);
     /* Stop and wait; drop packet if waiting */
     if(AState == wait) {
+        printf("CURRENTLY WAITING, DROPPING PACKET\n");
         return;
     }
     /* Transform message to packet */
@@ -324,12 +325,12 @@ void inputA(struct pkt packet) {
             tolayer3(A, *packetToResend);
             startTimer(A, TIMEOUT);
         } else {
-            printf("Packet stored in Q was NULL");
+            printf("Packet stored in Q was NULL\n");
             exit(1);
         }
         return;
     }
-
+    printf("PACKET ACKED, SENDING TO LAYER 5\n");
     /* Transform packet to message */
     struct msg message = packetToMessage(&packet);
     tolayer5(A,message.data);

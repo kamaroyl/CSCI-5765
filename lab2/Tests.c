@@ -1,11 +1,22 @@
 #include <stdio.h>
 #include <assert.h>
+#include <stdlib.h>
+#include <limits.h>
+
 struct pkt {
     int seqnum;
     int acknum;
     int checksum;
     char payload[20];
 };
+
+float jimsrand() {
+    /* largest int  - MACHINE DEPENDENT!!!!!!!!   */
+    /* individual students may need to change mmm */
+    /* x should be uniform in [0,1] */
+    return ((float)(rand()/(double) RAND_MAX));
+}
+
 
 void printBinaryRep(int input) {
     for(int i = 31; i > 0; --i) {
@@ -30,11 +41,17 @@ char check17thBit(int input) {
 /* If there is a carry, bring the bit to the front */
 int get1sCompSumOf16BitPartitioning(int input1, int input2) {
     int out = input1 + input2;
+    printf("Out: %d\n", out);
+    printBinaryRep(out);
+    printBinaryRep(131072);
+    printf("Check17thBit: %d\n", check17thBit(out));
+    printf("wrap around: %d\n", ((out + 1)& 0xFFFF));
     return check17thBit(out) ? (out + 1) & 0xFFFF : out;
 }
 
 int get1sCompSumOfTwo16BitNumbersStoredIn32Bit(int input1, int input2) {
     int out = input1 + input2;
+
     return check17thBit(out) ? (out + 1) & 0xFFFF : out;
 }
 
@@ -89,7 +106,7 @@ void test_getBottom16Bits() {
 }
 
 void test_check17thBit() {
-    int input_true = 0xfffff;
+    int input_true = 0xfffffff;
     int input_false = 0xffff;
     assert(check17thBit(input_true));
     assert(!check17thBit(input_false));
@@ -101,6 +118,12 @@ void test_get1sCompSumOf16BitPartitioning() {
     assert(get1sCompSumOf16BitPartitioning(getTop16Bits(input), getBottom16Bits(input)) == 48053);
     //Test that the partition works with the rolling bit
     input = -1145729268;
+    //01000111100001100
+    //01011101110110101
+    //10100101011000001
+    //00100101011000010
+    //10100101011000001
+    printf("%d\n", get1sCompSumOf16BitPartitioning(getTop16Bits(input), getBottom16Bits(input)));
     assert(get1sCompSumOf16BitPartitioning(getTop16Bits(input), getBottom16Bits(input)) == 19138);
     printf("test_get1sCompSumOf16BitPartitioning Passed\n");
 }
@@ -135,6 +158,13 @@ void test_calculateChecksum2() {
     printf("test_calculateChecksum2 Passed\n");
 }
 
+void testJimsRand() {
+    srand(9999);
+    float avg = jimsrand();
+    for(int i = 0; i < 1000000; i++) avg = avg + jimsrand();
+    printf("%f\n", avg/1000000);
+
+}
 int main(void) {
     test_getTop16Bits();
     test_getBottom16Bits();
@@ -142,5 +172,6 @@ int main(void) {
     test_get1sCompSumOf16BitPartitioning();
     test_calculateChecksum();
     test_calculateChecksum2();
+    testJimsRand();
     return 0;
 }
