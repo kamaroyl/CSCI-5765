@@ -79,7 +79,7 @@ void cleanUpGraph(struct Graph* graph) {
     free(graph);
 }
 
-void _printForwardingTable(struct Weight* weights, int origin, int cardinality) {
+void _printForwardingTable(struct Weight* weights, struct Graph* graph, int origin) {
     int prev;
     int link;
     int i;
@@ -88,16 +88,21 @@ void _printForwardingTable(struct Weight* weights, int origin, int cardinality) 
     origin++; //for external
     printf("Forwarding Table:\n");
     printf("Destination    |      Link   \n");
-    for(i = 0; i < cardinality; i++) {
+    printf("------------------------------\n");
+    for(i = 0; i < graph->vertexCount; i++) {
         memset(buffer, 0, 16);
         sprintf(buffer, "%d", (i + 1));
         length = strlen(buffer);
         while (length < 10) {
             buffer[length++] = ' ';
         }
-        prev = weights[i].previous + 1;
-        link = prev == origin? i+1: prev;
-        printf("     %s|     (%d,%d)\n", buffer, origin, link);
+        prev = i;
+        while (weights[prev].previous != origin - 1) {
+            prev = weights[prev].previous;
+            //printf("weights[%d].previous = %d\n", prev + 1, weights[prev].previous + 1);
+        }
+        link = prev + 1;
+        printf("     %s|      (%d,%d)\n", buffer, origin, link);
     }
 }
 
@@ -214,7 +219,7 @@ void linkStateRouting(struct Graph* graph, int origin, int debug) {
         free(minPtr);
         //printCurrentMinHeap(minHeap);
     }
-    _printForwardingTable(weights, origin, graph->vertexCount);
+    _printForwardingTable(weights, graph, origin);
 
     // CLEAN UP
     cleanUpMinHeap(minHeap);
