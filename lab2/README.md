@@ -10,15 +10,16 @@ Used the checksum described in the text (using 16 bit words) for checksumming
 * `make clean`
 * `make` 
 * `out/NetEmu`
-<b>
+<br>
 Should work with the inputs `100, .1, .3, 10, 2` and better (i.e. fewer errors/drops and higher
 mean time to arrival).<b>
 Implemented stop and wait so many packets are lost, but the emulation seems to work as expected.
-<b>
+<br>
+ 
 ### Design:
 Ended up having to cache the last known packet that was successfully responded to; otherwise
 the mean free path to the input getting accepted was very long. 
-<b><b>
+<br><br>
 InputB specifically needed to check the cache, check if the packet is valid and then check
 if the sequence number is as expected.
 
@@ -26,9 +27,10 @@ if the sequence number is as expected.
 * `make clean`
 * `make gbn`
 * `out/NetEmu_gbn`
-<b>
+<br>
 Should work with inputs `50, .2, .2, 10, 2`
-due to the output of GBN being fairly verbose it is being written to a file gbn.log
+due to the output of GBN being fairly verbose it is being written to a file gbn.log <br>
+
 ### Design:
 Initial design used individual acks, but, with over a third of packets lost to corruption
 or dropping, the queue built up too fast. So, instead, I switched to cumulative acks. This 
