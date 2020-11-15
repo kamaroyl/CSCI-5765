@@ -1,2 +1,5 @@
 .idea
 */out/*
+*.log
+a.out
+*.tar.gz
